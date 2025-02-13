@@ -135,20 +135,19 @@ body {
         text-align: center;
     }
 
-    .gallery {
+    .gallery-container {
+        max-height: 80vh; /* Adjust height as needed */
+        overflow-y: auto; /* Enables vertical scrolling */
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center; /* Centers images */
         gap: 10px;
-        width: 100%;
-        max-width: 90vw;
-        margin: auto;
-    }
+        padding: 10px;
+      }
 
-    .gallery img {
-        width: 80px; /* Adjust image size */
-        height: 80px;
-        object-fit: cover;
-        border: 5px solid #f2f2f2;
-    }
+      .gallery img {
+        max-width: 90%; /* Ensures images are responsive */
+        height: auto;
+        border-radius: 10px; /* Optional: adds rounded corners */
+      }
 }
