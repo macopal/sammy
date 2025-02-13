@@ -125,20 +125,30 @@ body {
 @media only screen and (max-width: 600px) {
     #shine {
         font-size: 22px;
+        text-align: center;
     }
     #hedlinecontainer {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-bottom: 60px;
+        margin-bottom: 40px;
+        text-align: center;
     }
 
     .gallery {
-        --d: 20s;
-        /* duration */
-        display: grid;
-        place-items: center; /* Center both horizontally and vertically */
-        width: 150px;
-        margin-left: 60px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        max-width: 90vw;
+        margin: auto;
+    }
+
+    .gallery img {
+        width: 80px; /* Adjust image size */
+        height: 80px;
+        object-fit: cover;
+        border: 5px solid #f2f2f2;
     }
 }
