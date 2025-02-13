@@ -128,19 +128,26 @@
         document.getElementById('valentine-message').style.display = "none";
 
         // Change the message
-        let newMessage = document.createElement("p");
-        newMessage.innerHTML = "Valentine until death do us part! 💖";
-        newMessage.style.fontSize = "28px";
-        newMessage.style.fontWeight = "bold";
-        newMessage.style.textAlign = "center";
-        newMessage.style.color = "#ff1493";
-        document.body.insertBefore(newMessage, document.getElementById("hedlinecontainer"));
+     let newMessage = document.createElement("p");
+    newMessage.id = "valentine-text"; // Assign an ID for easy removal
+    newMessage.innerHTML = "Valentine until death do us part! 💖";
+    newMessage.style.fontSize = "28px";
+    newMessage.style.fontWeight = "bold";
+    newMessage.style.textAlign = "center";
+    newMessage.style.color = "#ff1493";
+    document.body.insertBefore(newMessage, document.getElementById("hedlinecontainer"));
 
-        // Show headline & gallery after 1s
-        setTimeout(() => {
-            document.getElementById("hedlinecontainer").style.display = "flex";
-            document.getElementById('gallery').style.display = 'grid';
-        }, 1000);
+    // Show headline & gallery after 1s
+    setTimeout(() => {
+        document.getElementById("hedlinecontainer").style.display = "flex";
+        document.getElementById('gallery').style.display = 'grid';
+
+        // Remove the message when gallery appears
+        let messageElement = document.getElementById("valentine-text");
+        if (messageElement) {
+            messageElement.remove();
+        }
+    }, 1000);
     };
 
     document.getElementById('no-button').onclick = function() {
