@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentine's Day Flip Book</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Hide the headline initially */
+    #hedlinecontainer {
+      display: none;
+    }
+
+    /* Valentine message styling */
+    #valentine-message {
+      text-align: center;
+      font-size: 24px;
+      font-family: 'Arial', sans-serif;
+      font-weight: bold;
+      color: #d63384; /* Romantic pink */
+      background: linear-gradient(45deg, #ff69b4, #ff1493);
+      background-clip: text; /* Standard */
+      -webkit-background-clip: text; /* WebKit (Chrome, Safari) */
+      margin-bottom: 20px;
+    }
+
+    /* Button styling */
+    button {
+      font-size: 20px;
+      font-weight: bold;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s ease-in-out;
+      color: rgb(255, 255, 255);
+      margin: 10px;
+    }
+
+    #yes-button {
+      background: linear-gradient(45deg, #ff1493, #ff69b4);
+      box-shadow: 0px 4px 10px rgba(255, 20, 147, 0.5);
+      color: white; /* Ensures text is visible */
+      font-size: 20px; /* Adjust size if needed */
+      font-weight: bold;
+    }
+
+    #no-button {
+      background: linear-gradient(45deg, #ff7eb3, #ff4081);
+      box-shadow: 0px 4px 10px rgba(255, 105, 180, 0.5);
+      color: white; /* Ensures text is visible */
+      font-size: 20px; /* Adjust size if needed */
+      font-weight: bold;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      box-shadow: 0px 6px 12px rgba(255, 20, 147, 0.7);
+    }
+
+    /* Smooth font size transition for the "Yes" button */
+    #yes-button {
+      transition: font-size 0.3s ease-in-out;
+    }
+
+    /* Valentine headline */
+    #shine {
+      font-size: 60px;
+      font-weight: bold;
+      color: rgba(255, 0, 102, 0.3);
+      z-index: 10;
+      background: linear-gradient(to right, #222, #222, #fff 50%) 0 0 no-repeat;
+      background-size: 150px;
+      background-clip: text;
+      animation: shine 5s infinite;
+      text-shadow: 0 0px 0px rgba(233, 85, 189, 0.419);
+    }
+
+    @keyframes shine {
+      0%, 10% { background-position: -1000px; }
+      20% { background-position: top left; }
+      90% { background-position: top right; }
+      100% { background-position: 1000px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="valentine-message">
+    <p>Would you like to be my Valentine? 💘</p>
+    <div>
+      <button id="yes-button">Yes 💖</button>
+      <button id="no-button">No 💔</button>
+    </div>
+  </div>
+
+  <div id="hedlinecontainer">
+    <div id="shine">Happy Valentine's Day💞</div>
+  </div>
+
+  <div class="gallery" id="gallery">
+    <img src="images/received_1148413806988410.jpeg" alt="me">
+    <img src="images/received_946726760391863.jpeg" alt="sam">
+    <img src="images/received_946556794070637.jpeg" alt="samm">
+    <img src="images/Messenger_creation_DADA392A-AC9D-4AEC-9EAC-A8A7FCFDDB0C.jpeg" alt="a lovely kiss in the night">
+    <img src="images/Messenger_creation_60DB58C5-36E9-4E97-BB04-028ABE7A50AB.jpeg" alt="a woman inside a car">
+    <img src="images/IMG_20241230_190231_356.jpg" alt="a baby">
+    <img src="images/IMG_20240505_151635_263.jpg" alt="a girl">
+    <img src="images/20241218_175500.jpg" alt="a lovely kiss in the night">
+    <img src="images/20241215_173353.jpg" alt="a woman inside a car">
+    <img src="images/20240309_142906.jpg" alt="a baby">
+    <img src="images/20240128_184849.jpg" alt="a girl in the forest">
+    <img src="images/20231225_205020.jpg" alt="a girl">
+    <img src="images/20231214_122352.jpg" alt="first photo">
+    <img src="images/20230325_161749.jpg" alt="a girl">
+    <img src="images/20220429_192606.jpg" alt="first photo">
+  </div>
+
+  <script>
+    // Hide gallery and headline by default
+    document.getElementById("gallery").style.display = "none";
+    document.getElementById("hedlinecontainer").style.display = "none";
+
+    document.getElementById('yes-button').onclick = function() {
+        // Hide the valentine message & buttons
+        document.getElementById('valentine-message').style.display = "none";
+
+        // Change the message
+        let newMessage = document.createElement("p");
+        newMessage.innerHTML = "Valentine until death do us part! 💖";
+        newMessage.style.fontSize = "28px";
+        newMessage.style.fontWeight = "bold";
+        newMessage.style.textAlign = "center";
+        newMessage.style.color = "#ff1493";
+        document.body.insertBefore(newMessage, document.getElementById("hedlinecontainer"));
+
+        // Show headline & gallery after 1s
+        setTimeout(() => {
+            document.getElementById("hedlinecontainer").style.display = "flex";
+            document.getElementById('gallery').style.display = 'grid';
+        }, 1000);
+    };
+
+    document.getElementById('no-button').onclick = function() {
+        let yesButton = document.getElementById('yes-button');
+        yesButton.style.fontSize = "30px"; // Make the Yes button bigger
+        yesButton.style.padding = "14px 24px"; // Ensure padding adjusts with text size
+    };
+  </script>
+
+</body>
+</html>
